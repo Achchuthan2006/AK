@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Achchuthan Kumaranantha</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0c0c0e;
+    --surface: #141416;
+    --surface2: #1c1c1f;
+    --border: rgba(255,255,255,0.07);
+    --text: #e8e6e1;
+    --muted: #7a7875;
+    --accent: #c8f45a;
+    --accent2: #5af4c8;
+    --font-head: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 48px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(12,12,14,0.85);
+    backdrop-filter: blur(16px);
+  }
+  .nav-logo {
+    font-family: var(--font-head); font-weight: 700; font-size: 18px;
+    letter-spacing: -0.02em; color: var(--text); text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    font-size: 13px; font-weight: 500; color: var(--muted);
+    text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 48px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  }
+  .glow {
+    position: absolute; width: 500px; height: 500px;
+    border-radius: 50%; filter: blur(120px); pointer-events: none; opacity: 0.12;
+  }
+  .glow-1 { background: var(--accent); top: -100px; left: 20%; }
+  .glow-2 { background: var(--accent2); bottom: -100px; right: 10%; }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    max-width: 1100px; margin: 0 auto; width: 100%;
+    align-items: center;
+  }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(200, 244, 90, 0.08);
+    border: 1px solid rgba(200, 244, 90, 0.2);
+    color: var(--accent); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 100px; margin-bottom: 28px;
+  }
+  .hero-tag::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--accent); border-radius: 50%;
+    animation: blink 1.5s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 800; line-height: 1.05;
+    letter-spacing: -0.03em; margin-bottom: 24px;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero-desc {
+    color: var(--muted); font-size: 16px; line-height: 1.75;
+    max-width: 440px; margin-bottom: 40px; font-weight: 300;
+  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 26px; border-radius: 8px;
+    font-family: var(--font-body); font-size: 14px; font-weight: 500;
+    cursor: pointer; text-decoration: none; transition: all 0.2s; border: none;
+  }
+  .btn-primary { background: var(--accent); color: #0c0c0e; }
+  .btn-primary:hover { background: #d4f76a; transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.2); background: var(--surface); }
+
+  /* HERO RIGHT — fixed single card, no absolute overlap */
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .info-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  .card-label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 12px;
+  }
+  .card-value {
+    font-family: var(--font-head); font-size: 20px; font-weight: 700; margin-bottom: 4px;
+  }
+  .card-sub { font-size: 13px; color: var(--muted); }
+
+  .card-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px;
+  }
+  .stat-n {
+    font-family: var(--font-head); font-size: 26px; font-weight: 800;
+    color: var(--accent); letter-spacing: -0.02em;
+  }
+  .stat-l { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* Bottom row: two small cards side by side */
+  .hero-cards-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .mini-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+  }
+  .lang-item {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .lang-item:last-child { margin-bottom: 0; }
+  .lang-name { font-size: 13px; font-weight: 500; }
+  .lang-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  .loc-content { display: flex; align-items: center; gap: 10px; }
+  .loc-icon {
+    width: 36px; height: 36px;
+    background: rgba(200,244,90,0.1); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .loc-text strong { display: block; font-size: 14px; font-weight: 600; }
+  .loc-text span { font-size: 12px; color: var(--muted); }
+
+  /* SECTIONS */
+  section { padding: 96px 48px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: var(--font-head);
+    font-size: clamp(28px, 3vw, 40px); font-weight: 800;
+    letter-spacing: -0.02em; margin-bottom: 48px; line-height: 1.1;
+  }
+  .divider { width: 100%; height: 1px; background: var(--border); }
+
+  /* SKILLS */
+  #skills { background: var(--surface); }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+  .skill-pill {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 18px;
+    font-size: 13px; font-weight: 500;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .skill-pill:hover { border-color: rgba(200,244,90,0.3); transform: translateY(-2px); }
+  .skill-icon { font-size: 18px; }
+
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; }
+  .exp-item {
+    display: grid; grid-template-columns: 180px 1fr; gap: 32px;
+    padding: 32px 0; border-bottom: 1px solid var(--border);
+  }
+  .exp-item:first-child { border-top: 1px solid var(--border); }
+  .exp-year { font-size: 12px; font-weight: 500; color: var(--muted); letter-spacing: 0.05em; margin-bottom: 6px; }
+  .exp-tag {
+    display: inline-block; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 100px; border: 1px solid;
+  }
+  .tag-tech { color: var(--accent); border-color: rgba(200,244,90,0.3); background: rgba(200,244,90,0.06); }
+  .tag-ops { color: var(--accent2); border-color: rgba(90,244,200,0.3); background: rgba(90,244,200,0.06); }
+  .tag-service { color: #f4a15a; border-color: rgba(244,161,90,0.3); background: rgba(244,161,90,0.06); }
+  .exp-role { font-family: var(--font-head); font-size: 18px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.01em; }
+  .exp-company { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .exp-bullets li { font-size: 14px; color: #a8a6a1; padding-left: 16px; position: relative; line-height: 1.6; }
+  .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+
+  /* EDUCATION */
+  #education { background: var(--surface); }
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .edu-card {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .edu-card:hover { border-color: rgba(200,244,90,0.25); transform: translateY(-3px); }
+  .edu-card.featured { grid-column: span 2; }
+  .edu-icon { font-size: 28px; margin-bottom: 16px; }
+  .edu-degree { font-family: var(--font-head); font-size: 17px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .edu-school { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+  .edu-year { font-size: 12px; color: var(--accent); font-weight: 500; }
+  .edu-courses { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .course-tag { font-size: 11px; padding: 4px 10px; border-radius: 6px; background: var(--surface2); color: var(--muted); border: 1px solid var(--border); }
+
+  /* CONTACT */
+  .contact-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 24px; padding: 64px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .contact-card::before {
+    content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 300px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+  .contact-card h2 {
+    font-family: var(--font-head); font-size: clamp(28px, 3vw, 42px);
+    font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px;
+  }
+  .contact-card p { color: var(--muted); margin-bottom: 36px; font-size: 15px; }
+  .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .contact-link {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 22px; border-radius: 10px;
+    background: var(--surface2); border: 1px solid var(--border);
+    color: var(--text); text-decoration: none; font-size: 14px; font-weight: 500;
+    transition: all 0.2s;
+  }
+  .contact-link:hover { border-color: rgba(200,244,90,0.4); color: var(--accent); transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer {
+    padding: 32px 48px; border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  footer p { font-size: 12px; color: var(--muted); }
+
+  /* ANIMATIONS */
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 24px 60px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-cards-row { grid-template-columns: 1fr 1fr; }
+    section { padding: 64px 24px; }
+    .exp-item { grid-template-columns: 1fr; gap: 12px; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .edu-card.featured { grid-column: span 1; }
+    .contact-card { padding: 40px 24px; }
+    footer { flex-direction: column; gap: 8px; text-align: center; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-cards-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">AK<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="hero-grid">
+
+    <!-- LEFT -->
+    <div>
+      <div class="hero-tag">Open to opportunities</div>
+      <h1>Achchuthan<br><em>Kumaranantha</em></h1>
+      <p class="hero-desc">
+        Computer Programming Analysis student at Humber College — building real products, running a B2B business, and always learning something new.
+      </p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary">Get in touch →</a>
+        <a href="#experience" class="btn btn-outline">View my work</a>
+      </div>
+    </div>
+
+    <!-- RIGHT — stacked cards, no overlap -->
+    <div class="hero-right">
+      <!-- Main card -->
+      <div class="info-card">
+        <div class="card-label">At a glance</div>
+        <div class="card-value">Power Poly Supplies</div>
+        <div class="card-sub">Sales Associate · GTA, ON</div>
+        <div class="card-stats">
+          <div class="stat">
+            <div class="stat-n">2+</div>
+            <div class="stat-l">Years experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-n">B2B</div>
+            <div class="stat-l">Business ops</div>
+          </div>
+          <div class="stat">
+            <div class="stat-n">GTA</div>
+            <div class="stat-l">Market region</div>
+          </div>
+          <div class="stat">
+            <div class="stat-n">CS</div>
+            <div class="stat-l">Humber College</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom row: location + languages -->
+      <div class="hero-cards-row">
+        <div class="mini-card">
+          <div class="card-label">Location</div>
+          <div class="loc-content">
+            <div class="loc-icon">📍</div>
+            <div class="loc-text">
+              <strong>Maple, ON</strong>
+              <span>Canada</span>
+            </div>
+          </div>
+        </div>
+        <div class="mini-card">
+          <div class="card-label">Languages</div>
+          <div class="lang-item">
+            <span class="lang-name">English</span>
+            <span class="lang-dot" style="background:#c8f45a"></span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Tamil</span>
+            <span class="lang-dot" style="background:#5af4c8"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label">What I bring</div>
+    <div class="section-title">Core Competencies</div>
+    <div class="skills-grid">
+      <div class="skill-pill fade-up"><span class="skill-icon">💻</span> Java OOP</div>
+      <div class="skill-pill fade-up"><span class="skill-icon">🌐</span> Web Development</div>
+      <div class="skill-pill fade-up"><span class="skill-icon">⚛️</span> React</div>
+      <div class="skill-pill fade-up"><span class="skill-icon">🗄️</span> Database Design</div>
+      <div class="skill-pill fade-up"><span class="skill-icon">🤝</span> Customer Service</div>
+      <div class="skill-pill fade-up"><span class="skill-icon">💰</span> Cash Handling & POS</div>
+      <div class="skill-pill fade-up"><span class="skill-icon">📦</span> Inventory Management</div>
+      <div class="skill-pill fade-up"><span class="skill-icon">🛒</span> E-Commerce</div>
+      <div class="skill-pill fade-up"><span class="skill-icon">🎪</span> Event Coordination</div>
+      <div class="skill-pill fade-up"><span class="skill-icon">🏭</span> Machine Operation</div>
+      <div class="skill-pill fade-up"><span class="skill-icon">⏱️</span> Time Management</div>
+      <div class="skill-pill fade-up"><span class="skill-icon">🌍</span> Bilingual (EN & TA)</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">Work history</div>
+    <div class="section-title">Experience</div>
+    <div class="exp-list">
+      <div class="exp-item fade-up">
+        <div class="exp-meta">
+          <div class="exp-year">2026 – Present</div>
+          <span class="exp-tag tag-tech">Business</span>
+        </div>
+        <div>
+          <div class="exp-role">Sales Associate</div>
+          <div class="exp-company">Power Poly Supplies · Maple, ON</div>
+          <ul class="exp-bullets">
+            <li>Supported B2B sales of bulk packaging products to dry cleaners, laundromats, and retailers across the GTA.</li>
+            <li>Managed order processing, customer invoicing, and wholesale account relationships.</li>
+            <li>Coordinated supplier communication, inventory tracking, and order fulfilment.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item fade-up">
+        <div class="exp-meta">
+          <div class="exp-year">2025 – 2026</div>
+          <span class="exp-tag tag-ops">Operations</span>
+        </div>
+        <div>
+          <div class="exp-role">Machine Operator</div>
+          <div class="exp-company">Concord Plastic Bags / Shina Plastics · Toronto, ON</div>
+          <ul class="exp-bullets">
+            <li>Operated industrial plastic production machinery, consistently meeting daily production targets.</li>
+            <li>Maintained safety and quality standards in a fast-paced manufacturing environment.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item fade-up">
+        <div class="exp-meta">
+          <div class="exp-year">2025</div>
+          <span class="exp-tag tag-service">Service</span>
+        </div>
+        <div>
+          <div class="exp-role">Delivery & Assembly Technician</div>
+          <div class="exp-company">Private Employer · Ontario</div>
+          <ul class="exp-bullets">
+            <li>Delivered and assembled saunas and massage chairs for 10+ residential clients across Ontario.</li>
+            <li>Maintained high customer satisfaction through clear communication and careful handling.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item fade-up">
+        <div class="exp-meta">
+          <div class="exp-year">2025</div>
+          <span class="exp-tag tag-service">Events</span>
+        </div>
+        <div>
+          <div class="exp-role">Event Setup & Service Worker</div>
+          <div class="exp-company">Wedding Halls · Toronto, ON</div>
+          <ul class="exp-bullets">
+            <li>Set up and decorated multiple event venues including stage, tables, and décor under tight deadlines.</li>
+            <li>Provided attentive guest assistance with composure in high-pressure environments.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item fade-up">
+        <div class="exp-meta">
+          <div class="exp-year">2024 – 2025</div>
+          <span class="exp-tag tag-ops">Trades</span>
+        </div>
+        <div>
+          <div class="exp-role">Home Renovation Helper</div>
+          <div class="exp-company">Private Employer · Toronto, ON</div>
+          <ul class="exp-bullets">
+            <li>Assisted with painting, flooring, fixture mounting, and carpentry across multiple residential projects.</li>
+            <li>Maintained organized job sites and adapted quickly to varying tasks and timelines.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="education">
+  <div class="section-inner">
+    <div class="section-label">Academic background</div>
+    <div class="section-title">Education</div>
+    <div class="edu-grid">
+      <div class="edu-card featured fade-up">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-degree">Advanced Diploma – Computer Programming Analysis</div>
+        <div class="edu-school">Humber College – North Campus, Toronto, ON</div>
+        <div class="edu-year">2025 – Present</div>
+        <div class="edu-courses">
+          <span class="course-tag">Java OOP</span>
+          <span class="course-tag">HTML / CSS / JS</span>
+          <span class="course-tag">React</span>
+          <span class="course-tag">Database Design</span>
+          <span class="course-tag">Systems Analysis</span>
+        </div>
+      </div>
+      <div class="edu-card fade-up">
+        <div class="edu-icon">📜</div>
+        <div class="edu-degree">EAP Certificate – General Arts and Science</div>
+        <div class="edu-school">Humber College – Lakeshore Campus</div>
+        <div class="edu-year">2025</div>
+      </div>
+      <div class="edu-card fade-up">
+        <div class="edu-icon">🏫</div>
+        <div class="edu-degree">Ontario Secondary School Diploma (OSSD)</div>
+        <div class="edu-school">Trinity International High School, Ontario</div>
+        <div class="edu-year">2023 – 2024 · 33 Credits</div>
+      </div>
+    </div>
+    <div style="margin-top: 20px;">
+      <div class="edu-card fade-up" style="display:flex; align-items:flex-start; gap:20px;">
+        <div class="edu-icon" style="flex-shrink:0;">🙌</div>
+        <div>
+          <div class="edu-degree">Volunteer</div>
+          <div class="edu-school">Praise Tabernacle Church · Mississauga, ON</div>
+          <div class="edu-year">2023 – Present</div>
+          <p style="margin-top:10px; font-size:13px; color:var(--muted); line-height:1.65;">Coordinate community event logistics including hall setup, cleaning, and service facilitation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-card">
+      <div class="section-label" style="margin-bottom:12px;">Let's connect</div>
+      <h2>Ready to work together?</h2>
+      <p>Whether you have a role in mind or just want to chat — I'm always open.</p>
+      <div class="contact-links">
+        <a href="tel:6475704878" class="contact-link">📞 647-570-4878</a>
+        <a href="mailto:Kumarananthaachchuthan15@gmail.com" class="contact-link">✉️ Send Email</a>
+        <a href="https://powerpolysupplies.com" target="_blank" class="contact-link">🌐 Power Poly Supplies</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Achchuthan Kumaranantha · Maple, ON</p>
+  <p>Available full-time & part-time · Evenings & weekends</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
