@@ -1,0 +1,92 @@
+/* ==========================================================================
+   AK — Design tokens
+   The visual system is a "build docket": chalk paper, ink, one cobalt
+   accent, mono metadata. Every component derives from these tokens.
+   ========================================================================== */
+
+:root {
+  /* --- Color: surfaces --- */
+  --paper:        #f4f3ee;   /* page background */
+  --paper-2:      #ecebe3;   /* raised panels, tints */
+  --paper-3:      #e4e2d8;   /* deeper tint, hover fills */
+  --ink:          #16181f;   /* primary text, dark bands */
+  --ink-2:        #3b3e48;   /* secondary text */
+  --ink-3:        #63656c;   /* muted metadata (AA on paper) */
+
+  /* --- Color: lines --- */
+  --line:         #d6d4c9;   /* soft rules, card borders */
+  --line-strong:  #16181f;   /* section rules, emphasized borders */
+
+  /* --- Color: accent --- */
+  --cobalt:       #2440ce;   /* the single accent */
+  --cobalt-deep:  #1b31a8;   /* hover / active */
+  --cobalt-tint:  rgba(36, 64, 206, 0.08);
+
+  /* --- Color: on dark bands --- */
+  --on-ink:       #f4f3ee;
+  --on-ink-muted: #a9abb4;
+  --on-ink-line:  rgba(244, 243, 238, 0.16);
+  --cobalt-bright:#98a8ff;   /* accent that passes contrast on ink */
+
+  /* --- Color: status dots (decorative only, text stays ink) --- */
+  --status-live:  #1f7a4d;
+  --status-dev:   #b07708;
+  --status-concept: #63656c;
+
+  /* --- Typography --- */
+  --font-display: "Bricolage Grotesque", "Public Sans", ui-sans-serif, sans-serif;
+  --font-body:    "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, "Cascadia Mono", monospace;
+
+  --text-hero:  clamp(2.5rem, 6.4vw, 4.75rem);
+  --text-h2:    clamp(1.85rem, 3.6vw, 2.7rem);
+  --text-h3:    clamp(1.3rem, 2vw, 1.6rem);
+  --text-h4:    1.1rem;
+  --text-lead:  clamp(1.05rem, 1.4vw, 1.2rem);
+  --text-body:  1rem;
+  --text-small: 0.875rem;
+  --text-meta:  0.72rem;     /* mono uppercase metadata */
+
+  --leading-tight: 1.04;
+  --leading-head:  1.15;
+  --leading-body:  1.7;
+
+  --track-meta: 0.14em;
+
+  /* --- Spacing (4px base) --- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+
+  --section-pad: clamp(4.25rem, 9vw, 7rem);
+  --container:   1140px;
+  --container-wide: 1280px;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+
+  /* --- Shape --- */
+  --r-s: 3px;
+  --r-m: 6px;
+  --r-l: 12px;
+
+  /* --- Elevation --- */
+  --shadow-nav:  0 1px 0 var(--line), 0 8px 24px rgba(22, 24, 31, 0.06);
+  --shadow-lift: 0 14px 36px rgba(22, 24, 31, 0.10);
+
+  /* --- Motion --- */
+  --dur-1: 160ms;
+  --dur-2: 340ms;
+  --dur-3: 700ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --rise: 22px;
+
+  /* --- Z-index --- */
+  --z-skip: 120;
+  --z-nav: 100;
+  --z-menu: 95;
+}
