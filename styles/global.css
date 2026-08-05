@@ -25,6 +25,18 @@ body {
   flex-direction: column;
 }
 
+/* Paper grain: one fixed, non-interactive layer of SVG noise gives every
+   surface (light and ink alike) a print-stock material feel. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
 main { flex: 1; }
 
 img, svg { display: block; max-width: 100%; }
@@ -146,6 +158,28 @@ h1, h2, h3, h4 {
   flex-wrap: wrap;
 }
 
+/* Ghost chapter numerals: the journal's page numbers. Purely decorative,
+   set via data-index so markup stays semantic. */
+.section-head { position: relative; }
+.section-head[data-index]::before {
+  content: attr(data-index);
+  position: absolute;
+  right: 0;
+  top: -0.35em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(5rem, 11vw, 9rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  opacity: 0.05;
+  pointer-events: none;
+  user-select: none;
+}
+@media (max-width: 900px) {
+  .section-head[data-index]::before { display: none; }
+}
+
 /* Rules */
 .rule { border: 0; height: 1px; background: var(--line); }
 .rule-strong { border: 0; height: 2px; background: var(--line-strong); }
@@ -183,11 +217,21 @@ h1, h2, h3, h4 {
 .btn--light { background: var(--on-ink); color: var(--ink); }
 .btn--light:hover { background: var(--paper-3); color: var(--ink); }
 
-.btn--ghost-dark { border-color: var(--on-ink-line); color: var(--on-ink); background: transparent; }
+.btn--ghost-dark { border-color: var(--on-ink-line); color: var(--on-ink); background: transparent; max-width: 100%; overflow-wrap: anywhere; }
 .btn--ghost-dark:hover { border-color: var(--on-ink); color: var(--on-ink); }
 
 .btn .btn-arrow { transition: transform var(--dur-1) var(--ease-out); }
 .btn:hover .btn-arrow { transform: translateX(3px); }
+
+/* Magnetic response (desktop fine pointers only; motion.js sets --mx/--my). */
+.btn--magnetic {
+  transform: translate(var(--mx, 0), var(--my, 0));
+  transition: background-color var(--dur-1) var(--ease-out),
+              color var(--dur-1) var(--ease-out),
+              border-color var(--dur-1) var(--ease-out),
+              transform 220ms var(--ease-out);
+  will-change: transform;
+}
 
 /* Text link with drawn underline */
 .link-quiet {
@@ -426,6 +470,7 @@ body.menu-open { overflow: hidden; }
 }
 @media (max-width: 520px) {
   .brand-name { display: none; }
+  .chip { white-space: normal; }
 }
 @media (min-width: 861px) {
   .menu-overlay { display: none; }
@@ -433,21 +478,66 @@ body.menu-open { overflow: hidden; }
 
 /* --- Hero (home) -------------------------------------------------------- */
 
-.hero { padding-block: clamp(4rem, 10vw, 7.5rem) clamp(3.5rem, 7vw, 5.5rem); }
+.hero {
+  padding-block: clamp(4rem, 10vw, 7.5rem) clamp(3.5rem, 7vw, 5.5rem);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Faint drafting grid behind the hero only — the sheet the docket is drawn on. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 72px 72px;
+  opacity: 0.35;
+  -webkit-mask-image: radial-gradient(ellipse 90% 85% at 50% 0%, black 30%, transparent 78%);
+  mask-image: radial-gradient(ellipse 90% 85% at 50% 0%, black 30%, transparent 78%);
+}
+.hero > .container { position: relative; }
 
 .hero h1 {
   font-size: var(--text-hero);
-  line-height: var(--leading-tight);
-  letter-spacing: -0.025em;
-  max-width: 17ch;
-  margin-block: var(--sp-5) var(--sp-5);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin-block: var(--sp-5) clamp(2rem, 5vw, 3.5rem);
 }
+
+/* Art-directed headline: each line is authored, wrapped in an overflow mask,
+   and rises through it on entrance. */
+.mask-lines { text-wrap: initial; }
+.mask-lines .line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;   /* keep descenders inside the mask */
+  margin-bottom: -0.08em;
+}
+.mask-lines .line > span { display: block; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .mask-lines .line > span {
+    transform: translateY(112%);
+    transition: transform var(--dur-4) var(--ease-mask);
+  }
+  .mask-lines.is-in .line:nth-child(1) > span { transition-delay: 60ms; }
+  .mask-lines.is-in .line:nth-child(2) > span { transition-delay: 150ms; }
+  .mask-lines.is-in .line:nth-child(3) > span { transition-delay: 240ms; }
+  .mask-lines.is-in .line > span { transform: translateY(0); }
+
+  /* The headline mask replaces the generic rise for this element. */
+  .mask-lines[data-reveal] { opacity: 1; transform: none; }
+}
+html:not(.has-js) .mask-lines .line > span { transform: none; }
 
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
   gap: clamp(2rem, 6vw, 5rem);
-  align-items: end;
+  align-items: start;
 }
 
 .hero-copy .lead { max-width: 46ch; margin-bottom: var(--sp-6); }
@@ -561,6 +651,41 @@ body.menu-open { overflow: hidden; }
 .ticket--wide { grid-column: span 2; }
 .ticket--wide .ticket-title { font-size: var(--text-h2); }
 .ticket--wide .ticket-desc { font-size: var(--text-body); max-width: 60ch; }
+
+/* Flagship treatment: the lead project reads as its own launch moment,
+   not another card — oversized title, ledger-style meta columns. */
+.ticket--flagship {
+  grid-column: 1 / -1;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  position: relative;
+  overflow: hidden;
+}
+.ticket--flagship::before {
+  content: "01";
+  position: absolute;
+  right: clamp(0.5rem, 3vw, 2rem);
+  top: -0.12em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(6rem, 16vw, 13rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  opacity: 0.045;
+  pointer-events: none;
+  user-select: none;
+}
+.ticket--flagship .ticket-title {
+  font-size: var(--text-flag);
+  letter-spacing: -0.025em;
+  max-width: 14ch;
+}
+.ticket--flagship .ticket-desc { font-size: var(--text-body); max-width: 58ch; }
+.ticket--flagship .ticket-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-5);
+}
 
 /* Non-link ticket (upcoming work) */
 .ticket--flat { cursor: default; }
@@ -761,7 +886,9 @@ body.menu-open { overflow: hidden; }
 /* --- Dark band (CTA) ----------------------------------------------------- */
 
 .band {
-  background: var(--ink);
+  background:
+    radial-gradient(720px 420px at 14% -10%, rgba(76, 104, 255, 0.13), transparent 65%),
+    var(--ink);
   color: var(--on-ink);
   padding-block: var(--section-pad);
 }
@@ -795,6 +922,28 @@ body.menu-open { overflow: hidden; }
   padding-block: var(--sp-6);
   font-size: var(--text-small);
 }
+
+/* Closing moment: a last word before the utility row. */
+.footer-close {
+  padding-bottom: var(--sp-6);
+  margin-bottom: var(--sp-6);
+  border-bottom: 1px solid var(--on-ink-line);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-5);
+  flex-wrap: wrap;
+}
+.footer-close p {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--on-ink);
+  max-width: 26ch;
+}
+.footer-close .brand-mark { font-size: 2rem; color: var(--on-ink); }
 .footer-inner {
   display: flex;
   flex-wrap: wrap;
@@ -943,8 +1092,17 @@ body.menu-open { overflow: hidden; }
   font-size: var(--text-meta);
   color: var(--cobalt);
   letter-spacing: 0.08em;
-  display: block;
-  margin-bottom: var(--sp-2);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-3);
+}
+.case-section h2 .case-index::after {
+  content: "";
+  height: 1px;
+  width: 44px;
+  background: var(--cobalt);
+  opacity: 0.5;
 }
 .case-section > .container > p,
 .case-prose p { max-width: 66ch; color: var(--ink-2); }

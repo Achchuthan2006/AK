@@ -22,9 +22,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles/tokens.css?v=2">
-<link rel="stylesheet" href="styles/global.css?v=2">
-<script src="js/motion.js?v=3" defer></script>
+<link rel="stylesheet" href="styles/tokens.css?v=4">
+<link rel="stylesheet" href="styles/global.css?v=4">
+<script src="js/motion.js?v=4" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -99,22 +99,27 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow" data-reveal>Full-stack product engineer · GTA, Canada</p>
-        <h1 data-reveal style="--d:80ms">I design and build production software for <span class="accent">real businesses</span>.</h1>
-        <p class="lead" data-reveal style="--d:160ms">Commerce platforms, ordering systems, bilingual community sites, and AI-assisted product experiences — planned, engineered, shipped, and looked after.</p>
-        <div class="hero-actions" data-reveal style="--d:240ms">
-          <a class="btn btn--primary" href="work/">View selected work <span class="btn-arrow" aria-hidden="true">→</span></a>
-          <a class="btn btn--ghost" href="contact/">Start a project</a>
+    <div class="container">
+      <p class="eyebrow" data-reveal>Full-stack product engineer · GTA, Canada</p>
+      <h1 class="mask-lines" data-reveal style="--d:80ms">
+        <span class="line"><span>I design and build</span></span>
+        <span class="line"><span>production software</span></span>
+        <span class="line"><span>for <span class="accent">real businesses</span>.</span></span>
+      </h1>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="lead" data-reveal style="--d:160ms">Commerce platforms, ordering systems, bilingual community sites, and AI-assisted product experiences — planned, engineered, shipped, and looked after.</p>
+          <div class="hero-actions" data-reveal style="--d:240ms">
+            <a class="btn btn--primary btn--magnetic" href="work/">View selected work <span class="btn-arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn--ghost" href="contact/">Start a project</a>
+          </div>
+          <div class="hero-secondary" data-reveal style="--d:320ms">
+            <a href="https://github.com/Achchuthan2006" rel="noopener">GitHub ↗</a>
+            <a href="resume/">Resume</a>
+            <a href="mailto:kumarananthaachchuthan15@gmail.com">Email</a>
+          </div>
         </div>
-        <div class="hero-secondary" data-reveal style="--d:320ms">
-          <a href="https://github.com/Achchuthan2006" rel="noopener">GitHub ↗</a>
-          <a href="resume/">Resume</a>
-          <a href="mailto:kumarananthaachchuthan15@gmail.com">Email</a>
-        </div>
-      </div>
-      <dl class="sheet hero-sheet" data-reveal style="--d:280ms">
+        <dl class="sheet hero-sheet" data-reveal style="--d:280ms">
         <div class="sheet-caption">Build sheet — AK/2026</div>
         <div class="sheet-row"><dt>Name</dt><dd>Achchuthan Kumaranantha</dd></div>
         <div class="sheet-row"><dt>Role</dt><dd>Full-stack product engineer</dd></div>
@@ -122,7 +127,8 @@
         <div class="sheet-row"><dt>Languages</dt><dd>English · Tamil</dd></div>
         <div class="sheet-row"><dt>Education</dt><dd>Computer Programming &amp; Analysis, Humber College</dd></div>
         <div class="sheet-row"><dt>Status</dt><dd><span class="chip"><span class="dot dot--live" aria-hidden="true"></span>Open to roles &amp; projects</span></dd></div>
-      </dl>
+        </dl>
+      </div>
     </div>
   </section>
 
@@ -148,7 +154,7 @@
       </div>
 
       <div class="work-grid">
-        <a class="ticket ticket--wide" href="work/printme/" data-reveal>
+        <a class="ticket ticket--flagship" href="work/printme/" data-reveal>
           <div class="ticket-meta"><span>Print commerce</span><span>2026</span><span class="chip"><span class="dot dot--live" aria-hidden="true"></span>Live preview</span></div>
           <h3 class="ticket-title">PrintMe</h3>
           <p class="ticket-desc">A print-commerce platform engineered for large catalogues of configurable products — server-validated pricing and options, Square checkout, an admin system, and production-ready workflows from order to output.</p>
@@ -194,7 +200,7 @@
   <!-- Capabilities -->
   <section class="section section--tint" id="capabilities">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head" data-index="02">
         <p class="eyebrow" data-reveal>Capabilities</p>
         <h2 data-reveal style="--d:80ms">Organized around outcomes, not just tools</h2>
       </div>
@@ -244,7 +250,7 @@
   <!-- Services teaser -->
   <section class="section" id="services">
     <div class="container">
-      <div class="section-head section-head--row">
+      <div class="section-head section-head--row" data-index="03">
         <div>
           <p class="eyebrow" data-reveal>For businesses</p>
           <h2 data-reveal style="--d:80ms">What you can hire me to build</h2>
@@ -279,7 +285,7 @@
   <!-- Process -->
   <section class="section section--tint" id="process">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head" data-index="04">
         <p class="eyebrow" data-reveal>How I work</p>
         <h2 data-reveal style="--d:80ms">A delivery process, not a guessing game</h2>
       </div>
@@ -298,7 +304,7 @@
   <!-- About teaser -->
   <section class="section" id="about">
     <div class="container">
-      <div class="section-head section-head--row">
+      <div class="section-head section-head--row" data-index="05">
         <div>
           <p class="eyebrow" data-reveal>About</p>
           <h2 data-reveal style="--d:80ms">Technical depth, business context</h2>
@@ -334,6 +340,10 @@
 </main>
 
 <footer class="site-footer">
+  <div class="container footer-close">
+    <p>Software that respects how your business actually runs.</p>
+    <span class="brand-mark" aria-hidden="true">AK<span class="accent">.</span></span>
+  </div>
   <div class="container footer-inner">
     <p>© 2026 Achchuthan Kumaranantha · Vaughan, Ontario</p>
     <ul class="footer-links">

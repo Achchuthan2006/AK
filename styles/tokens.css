@@ -38,7 +38,8 @@
   --font-body:    "Public Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono:    "IBM Plex Mono", ui-monospace, "Cascadia Mono", monospace;
 
-  --text-hero:  clamp(2.5rem, 6.4vw, 4.75rem);
+  --text-hero:  clamp(2rem, 7.2vw, 5.6rem);
+  --text-flag:  clamp(2.1rem, 4.6vw, 3.6rem);   /* flagship project titles */
   --text-h2:    clamp(1.85rem, 3.6vw, 2.7rem);
   --text-h3:    clamp(1.3rem, 2vw, 1.6rem);
   --text-h4:    1.1rem;
@@ -82,7 +83,9 @@
   --dur-1: 160ms;
   --dur-2: 340ms;
   --dur-3: 700ms;
+  --dur-4: 900ms;                                /* editorial mask reveals */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-mask: cubic-bezier(0.65, 0, 0.15, 1);   /* confident in-out for masks */
   --rise: 22px;
 
   /* --- Z-index --- */
