@@ -10,13 +10,20 @@
 <meta property="og:title" content="Sharon's Ice Cream — Dessert Brand Concept Case Study">
 <meta property="og:description" content="A premium dessert brand and digital franchise concept — visual storytelling, menu discovery, and commerce-ready structure.">
 <meta property="og:url" content="https://ak-hazel.vercel.app/work/sharons-ice-cream/">
+<meta property="og:image" content="https://ak-hazel.vercel.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AK — Achchuthan Kumaranantha, full-stack product engineer based in the GTA, Canada">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ak-hazel.vercel.app/assets/og-image.png">
 <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../styles/tokens.css">
-<link rel="stylesheet" href="../../styles/global.css">
-<script src="../../js/motion.js" defer></script>
+<link rel="stylesheet" href="../../styles/tokens.css?v=2">
+<link rel="stylesheet" href="../../styles/global.css?v=2">
+<script src="../../js/motion.js?v=3" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -112,9 +119,17 @@
       </div>
       <div class="site-preview" data-reveal style="--d:80ms">
         <div class="site-preview-bar" aria-hidden="true"><span></span><span></span><span></span><p>sharons-icecream.vercel.app</p></div>
-        <iframe src="https://sharons-icecream.vercel.app" title="Interactive preview of Sharon's Ice Cream website" loading="lazy"></iframe>
+        <div class="site-preview-stage">
+          <div class="preview-facade">
+            <p class="preview-facade-host">sharons-icecream.vercel.app</p>
+            <button class="btn btn--primary" type="button" data-preview-launch>Launch interactive preview <span class="btn-arrow" aria-hidden="true">→</span></button>
+            <p class="preview-facade-note">Loads the live site inside this page.</p>
+          </div>
+          <iframe data-preview-src="https://sharons-icecream.vercel.app" title="Interactive preview of Sharon's Ice Cream website" loading="lazy" hidden sandbox="allow-scripts allow-same-origin allow-forms allow-popups" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
       </div>
       <p class="preview-note">Interactive preview — scroll and explore here, or open the full site above.</p>
+      <p class="preview-fallback" hidden>Preview staying blank? Some sites block embedding — <a href="https://sharons-icecream.vercel.app" target="_blank" rel="noopener noreferrer">open sharons-icecream.vercel.app in a new tab ↗</a>.</p>
     </div>
   </section>
 

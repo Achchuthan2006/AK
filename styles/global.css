@@ -29,6 +29,10 @@ main { flex: 1; }
 
 img, svg { display: block; max-width: 100%; }
 
+/* Author display rules (e.g. .site-preview iframe) outrank the UA sheet,
+   so [hidden] has to be re-asserted or hidden elements stay visible. */
+[hidden] { display: none !important; }
+
 a { color: var(--cobalt); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 a:hover { color: var(--cobalt-deep); }
 
@@ -281,6 +285,7 @@ h1, h2, h3, h4 {
   position: sticky;
   top: 0;
   z-index: var(--z-nav);
+  background: rgba(244, 243, 238, 0.92); /* fallback: Safari < 16.2, older Edge */
   background: color-mix(in srgb, var(--paper) 92%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -886,6 +891,7 @@ body.menu-open { overflow: hidden; }
   font-size: var(--text-meta);
   color: var(--ink-3);
 }
+.site-preview-stage { position: relative; }
 .site-preview iframe {
   display: block;
   width: 100%;
@@ -893,11 +899,39 @@ body.menu-open { overflow: hidden; }
   border: 0;
   background: var(--paper-2);
 }
+
+/* Click-to-load placeholder shown until the visitor asks for the preview. */
+.preview-facade {
+  min-height: clamp(420px, 64vw, 720px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  padding: var(--sp-6) var(--sp-5);
+  text-align: center;
+  background-color: var(--paper-2);
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.preview-facade-host {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  letter-spacing: var(--track-meta);
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.preview-facade-note { font-size: var(--text-small); color: var(--ink-2); max-width: 34ch; }
+
 .preview-note { margin-top: var(--sp-3); font-family: var(--font-mono); font-size: var(--text-meta); color: var(--ink-3); }
+.preview-fallback { margin-top: var(--sp-2); font-size: var(--text-small); color: var(--ink-2); }
 
 @media (max-width: 620px) {
   .case-preview-head { align-items: start; flex-direction: column; }
-  .site-preview iframe { height: 520px; }
+  .site-preview iframe,
+  .preview-facade { height: 520px; min-height: 520px; }
   .site-preview-bar p { max-width: 70%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 }
 
@@ -1064,4 +1098,11 @@ html:not(.has-js) .rule-anim { transform: scaleX(1); }
   .resume-sheet { border: 0; border-radius: 0; padding: 0; max-width: none; }
   a { color: inherit; text-decoration: none; }
   [data-reveal] { opacity: 1 !important; transform: none !important; }
+
+  /* Keep entries whole across page breaks and never orphan a section rule. */
+  .resume-section { break-inside: auto; }
+  .resume-section > h2 { break-after: avoid; }
+  .resume-item { break-inside: avoid; }
+  .resume-item-head { break-after: avoid; }
+  @page { margin: 14mm; }
 }
