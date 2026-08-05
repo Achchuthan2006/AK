@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrintMe — Print-Commerce Platform Case Study | Achchuthan Kumaranantha</title>
+<meta name="description" content="Case study: PrintMe, a print-commerce platform engineered for large configurable catalogues — server-validated pricing, Square checkout, admin tooling, and production workflows.">
+<link rel="canonical" href="https://ak-hazel.vercel.app/work/printme/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PrintMe — Print-Commerce Platform Case Study">
+<meta property="og:description" content="A print-commerce platform engineered for large configurable catalogues — server-validated pricing, Square checkout, admin tooling, and production workflows.">
+<meta property="og:url" content="https://ak-hazel.vercel.app/work/printme/">
+<meta property="og:image" content="https://ak-hazel.vercel.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AK — Achchuthan Kumaranantha, full-stack product engineer based in the GTA, Canada">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ak-hazel.vercel.app/assets/og-image.png">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles/tokens.css?v=4">
+<link rel="stylesheet" href="../../styles/global.css?v=4">
+<script src="../../js/motion.js?v=5" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "name": "PrintMe",
+      "description": "A print-commerce platform engineered for large configurable catalogues.",
+      "url": "https://ak-hazel.vercel.app/work/printme/",
+      "creator": { "@type": "Person", "name": "Achchuthan Kumaranantha", "url": "https://ak-hazel.vercel.app/" },
+      "creativeWorkStatus": "In development"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Work", "item": "https://ak-hazel.vercel.app/work/" },
+        { "@type": "ListItem", "position": 2, "name": "PrintMe", "item": "https://ak-hazel.vercel.app/work/printme/" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../../">
+      <span class="brand-mark">AK<span class="accent">.</span></span>
+      <span class="brand-name">Achchuthan Kumaranantha</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="../" aria-current="page">Work</a></li>
+        <li><a href="../../services/">Services</a></li>
+        <li><a href="../../about/">About</a></li>
+        <li><a href="../../resume/">Resume</a></li>
+        <li class="nav-cta"><a class="btn btn--primary" href="../../contact/">Start a project</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+  </div>
+</header>
+
+<div class="menu-overlay" id="menu" hidden>
+  <nav aria-label="Menu">
+    <ul class="menu-links">
+      <li><a href="../"><span class="menu-index">01</span>Work</a></li>
+      <li><a href="../../services/"><span class="menu-index">02</span>Services</a></li>
+      <li><a href="../../about/"><span class="menu-index">03</span>About</a></li>
+      <li><a href="../../resume/"><span class="menu-index">04</span>Resume</a></li>
+      <li><a href="../../contact/"><span class="menu-index">05</span>Contact</a></li>
+    </ul>
+  </nav>
+  <div class="menu-foot">
+    <a href="mailto:kumarananthaachchuthan15@gmail.com">kumarananthaachchuthan15@gmail.com</a>
+    <a href="https://github.com/Achchuthan2006" rel="noopener">GitHub</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="case-head">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb" data-reveal>
+        <a href="../">Work</a><span class="sep">/</span><span aria-current="page">PrintMe</span>
+      </nav>
+      <h1 data-reveal style="--d:80ms">A print-commerce engine built for configurable catalogues.</h1>
+      <p class="lead" data-reveal style="--d:160ms">PrintMe is a production-focused print-commerce platform: a large catalogue of configurable products, pricing that's computed and validated on the server, Square checkout, and the admin tooling a print operation needs to run day to day.</p>
+      <div class="case-live" data-reveal style="--d:220ms">
+        <a class="btn btn--primary" href="https://printme-design-website.vercel.app/" target="_blank" rel="noopener noreferrer">Open live preview <span class="btn-arrow" aria-hidden="true">↗</span></a>
+      </div>
+      <dl class="sheet sheet--row" data-reveal style="--d:240ms">
+        <div class="sheet-row"><dt>Type</dt><dd>Product · Print commerce</dd></div>
+        <div class="sheet-row"><dt>Role</dt><dd>Product engineer — architecture to deployment</dd></div>
+        <div class="sheet-row"><dt>Year</dt><dd>2026 — ongoing</dd></div>
+        <div class="sheet-row"><dt>Status</dt><dd><span class="chip"><span class="dot dot--live" aria-hidden="true"></span>Live preview · active development</span></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="case-preview-section" aria-labelledby="live-preview-title">
+    <div class="container">
+      <div class="case-preview-head" data-reveal>
+        <div><p class="eyebrow">Interactive preview</p><h2 id="live-preview-title">Explore the print-commerce platform.</h2></div>
+        <a class="preview-link" href="https://printme-design-website.vercel.app/" target="_blank" rel="noopener noreferrer">View full site <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="site-preview" data-reveal style="--d:80ms">
+        <div class="site-preview-bar" aria-hidden="true"><span></span><span></span><span></span><p>printme-design-website.vercel.app</p></div>
+        <div class="site-preview-stage">
+          <div class="preview-facade">
+            <p class="preview-facade-host">printme-design-website.vercel.app</p>
+            <button class="btn btn--primary" type="button" data-preview-launch>Launch interactive preview <span class="btn-arrow" aria-hidden="true">→</span></button>
+            <p class="preview-facade-note">Loads the live site inside this page.</p>
+          </div>
+          <iframe data-preview-src="https://printme-design-website.vercel.app/" title="Interactive preview of the PrintMe website" loading="lazy" hidden sandbox="allow-scripts allow-same-origin allow-forms allow-popups" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+      </div>
+      <p class="preview-note">Interactive development preview — scroll and explore here, or open the full site above.</p>
+      <p class="preview-fallback" hidden>Preview staying blank? Some sites block embedding — <a href="https://printme-design-website.vercel.app/" target="_blank" rel="noopener noreferrer">open printme-design-website.vercel.app in a new tab ↗</a>.</p>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <h2><span class="case-index">01</span>The problem</h2>
+      <div class="case-prose">
+        <p>Print products are deceptively complicated commerce. A single business card isn't one SKU — it's a matrix of sizes, stocks, finishes, quantities, and turnaround options, each combination with its own price. Off-the-shelf store platforms handle simple variants; they fall over when the catalogue is large and every product is a configurator.</p>
+        <p>PrintMe exists to handle that reality properly: customers configure exactly what they need, prices are always correct, and the order that reaches production carries everything the print workflow needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <h2><span class="case-index">02</span>What I built</h2>
+      <div class="feature-grid">
+        <div class="feature" data-reveal><strong>Configurable product system</strong><p>Products are defined by option schemas rather than flat variants, so a large catalogue stays manageable and consistent.</p></div>
+        <div class="feature" data-reveal style="--d:60ms"><strong>Server-side pricing &amp; validation</strong><p>Every configuration and price is validated on the server with Zod schemas — the client can never invent a price.</p></div>
+        <div class="feature" data-reveal><strong>Checkout with Square</strong><p>A payment workflow built on Square, from cart through confirmation, designed around real order data.</p></div>
+        <div class="feature" data-reveal style="--d:60ms"><strong>Admin system</strong><p>Catalogue management, order visibility, and the operational controls a print business needs without touching code.</p></div>
+        <div class="feature" data-reveal><strong>Search &amp; discovery</strong><p>Catalogue search and structured navigation so customers find the right product before they configure it.</p></div>
+        <div class="feature" data-reveal style="--d:60ms"><strong>SEO &amp; performance groundwork</strong><p>Per-page metadata, clean URLs, and server rendering so the catalogue is discoverable and fast.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <h2><span class="case-index">03</span>How it's built</h2>
+      <div class="case-prose">
+        <p>The platform is a Next.js and TypeScript application backed by Supabase and PostgreSQL. The data model treats product options as first-class schema, and the same validation source of truth (Zod) runs on both sides of the wire.</p>
+      </div>
+      <ol class="flow">
+        <li data-reveal><strong>Catalogue &amp; configuration</strong><span>Customer browses the catalogue and configures a product — options driven by schema, not hardcoded forms.</span></li>
+        <li data-reveal><strong>Server validation &amp; pricing</strong><span>The chosen configuration is validated and priced server-side against the product's option schema.</span></li>
+        <li data-reveal><strong>Checkout</strong><span>Square processes payment; the order is written with its full configuration snapshot.</span></li>
+        <li data-reveal><strong>Admin &amp; production</strong><span>Orders surface in the admin system with everything production needs to run the job.</span></li>
+      </ol>
+      <ul class="tech-list" aria-label="Technology">
+        <li>Next.js</li><li>TypeScript</li><li>Supabase</li><li>PostgreSQL</li><li>Square</li><li>Zod</li><li>Automated testing</li><li>Vercel</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <h2><span class="case-index">04</span>Status &amp; what's next</h2>
+      <div class="case-prose">
+        <p>PrintMe is in active development, working toward production launch. The current build is available in the interactive preview above while work continues on hardening checkout, expanding the admin system, and preparing the catalogue for real production volume.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <h2><span class="case-index">05</span>What I learned</h2>
+      <div class="case-prose">
+        <p>Commerce correctness lives on the server. Designing the option schema first — before any UI — made pricing, validation, and admin tooling fall out of one source of truth instead of three copies that drift apart. It also made testing meaningful: the tests exercise the same schemas the customer hits.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <p class="eyebrow" data-reveal>Related work</p>
+      <div class="related-grid" style="margin-top: var(--sp-5);">
+        <a class="ticket" href="../arun-bakery/" data-reveal>
+          <div class="ticket-meta"><span>Restaurant</span><span class="chip"><span class="dot dot--dev" aria-hidden="true"></span>In development</span></div>
+          <h2 class="ticket-title">Arun Bakery</h2>
+          <p class="ticket-desc">Bilingual ordering and digital transformation for a Tamil bakery brand.</p>
+          <span class="ticket-cta">Read the case study</span>
+        </a>
+        <a class="ticket" href="../power-poly-supplies/" data-reveal style="--d:80ms">
+          <div class="ticket-meta"><span>B2B commerce</span><span class="chip"><span class="dot dot--live" aria-hidden="true"></span>Live</span></div>
+          <h2 class="ticket-title">Power Poly Supplies</h2>
+          <p class="ticket-desc">A live B2B commerce and operations platform for a garment-care supplier.</p>
+          <span class="ticket-cta">Read the case study</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container">
+      <p class="eyebrow eyebrow--onink" data-reveal>Contact</p>
+      <h2 data-reveal style="--d:80ms">Selling something more complicated than a t-shirt?</h2>
+      <p class="lead" data-reveal style="--d:160ms">If your products have options, tiers, or workflows that template stores can't express, that's exactly the kind of system I build.</p>
+      <div class="band-actions" data-reveal style="--d:240ms">
+        <a class="btn btn--light" href="../../contact/">Start a project <span class="btn-arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost-dark" href="mailto:kumarananthaachchuthan15@gmail.com">Email me directly</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-close">
+    <p>Software that respects how your business actually runs.</p>
+    <span class="brand-mark" aria-hidden="true">AK<span class="accent">.</span></span>
+  </div>
+  <div class="container footer-inner">
+    <p>© 2026 Achchuthan Kumaranantha · Vaughan, Ontario</p>
+    <ul class="footer-links">
+      <li><a href="mailto:kumarananthaachchuthan15@gmail.com">Email</a></li>
+      <li><a href="https://github.com/Achchuthan2006" rel="noopener">GitHub</a></li>
+      <li><a href="../../resume/">Resume</a></li>
+      <li><a href="../">Work</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
