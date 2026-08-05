@@ -46,7 +46,8 @@ if (toggle && overlay) {
   // Everything outside the dialog is made inert while it is open, so keyboard
   // and screen-reader users cannot reach the page behind the overlay.
   const background = [
-    document.querySelector(".site-nav"),
+    document.querySelector(".site-nav .brand"),
+    document.querySelector('.site-nav nav[aria-label="Primary"]'),
     document.getElementById("main"),
     document.querySelector(".site-footer"),
   ].filter(Boolean);
@@ -60,9 +61,6 @@ if (toggle && overlay) {
       if (inert) el.setAttribute("aria-hidden", "true");
       else el.removeAttribute("aria-hidden");
     });
-    // The toggle lives inside the (now inert) header, so keep it usable.
-    if ("inert" in HTMLElement.prototype) toggle.inert = false;
-    if (inert) toggle.removeAttribute("aria-hidden");
   };
 
   const setOpen = (open) => {
