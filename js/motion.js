@@ -125,6 +125,27 @@ if (toggle && overlay) {
    and a site that refuses to be framed degrades to its "open in a new tab"
    link instead of an empty rectangle. */
 
+/* --- Magnetic CTAs ---------------------------------------------------------
+   Desktop fine pointers only, a few pixels of travel, and never under
+   reduced motion. The button remains a plain link everywhere else. */
+
+if (!reduceMotion && window.matchMedia("(pointer: fine)").matches) {
+  document.querySelectorAll(".btn--magnetic").forEach((btn) => {
+    const MAX = 4;
+    btn.addEventListener("pointermove", (e) => {
+      const r = btn.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width - 0.5) * 2;
+      const y = ((e.clientY - r.top) / r.height - 0.5) * 2;
+      btn.style.setProperty("--mx", (x * MAX).toFixed(1) + "px");
+      btn.style.setProperty("--my", (y * MAX).toFixed(1) + "px");
+    });
+    btn.addEventListener("pointerleave", () => {
+      btn.style.setProperty("--mx", "0px");
+      btn.style.setProperty("--my", "0px");
+    });
+  });
+}
+
 document.querySelectorAll("[data-preview-launch]").forEach((button) => {
   button.addEventListener("click", () => {
     const stage = button.closest(".site-preview-stage");
