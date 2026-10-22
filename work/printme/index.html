@@ -100,13 +100,13 @@
       <h1 data-reveal style="--d:80ms">A print-commerce engine built for configurable catalogues.</h1>
       <p class="lead" data-reveal style="--d:160ms">PrintMe is a production-focused print-commerce platform: a large catalogue of configurable products, pricing that's computed and validated on the server, Square checkout, and the admin tooling a print operation needs to run day to day.</p>
       <div class="case-live" data-reveal style="--d:220ms">
-        <a class="btn btn--primary" href="https://printme-design-website.vercel.app/" target="_blank" rel="noopener noreferrer">Open live preview <span class="btn-arrow" aria-hidden="true">↗</span></a>
+        <a class="btn btn--primary" href="https://printme-design-website.vercel.app/" target="_blank" rel="noopener noreferrer">Visit the live launch page <span class="btn-arrow" aria-hidden="true">↗</span></a>
       </div>
       <dl class="sheet sheet--row" data-reveal style="--d:240ms">
         <div class="sheet-row"><dt>Type</dt><dd>Product · Print commerce</dd></div>
         <div class="sheet-row"><dt>Role</dt><dd>Product engineer — architecture to deployment</dd></div>
         <div class="sheet-row"><dt>Year</dt><dd>2026 — ongoing</dd></div>
-        <div class="sheet-row"><dt>Status</dt><dd><span class="chip"><span class="dot dot--live" aria-hidden="true"></span>Live preview · active development</span></dd></div>
+        <div class="sheet-row"><dt>Status</dt><dd><span class="chip"><span class="dot dot--dev" aria-hidden="true"></span>In development · launch page live</span></dd></div>
       </dl>
     </div>
   </section>
@@ -114,21 +114,24 @@
   <section class="case-preview-section" aria-labelledby="live-preview-title">
     <div class="container">
       <div class="case-preview-head" data-reveal>
-        <div><p class="eyebrow">Interactive preview</p><h2 id="live-preview-title">Explore the print-commerce platform.</h2></div>
+        <div><p class="eyebrow">Interactive preview</p><h2 id="live-preview-title">The public launch page, live today.</h2></div>
         <a class="preview-link" href="https://printme-design-website.vercel.app/" target="_blank" rel="noopener noreferrer">View full site <span aria-hidden="true">↗</span></a>
       </div>
       <div class="site-preview" data-reveal style="--d:80ms">
         <div class="site-preview-bar" aria-hidden="true"><span></span><span></span><span></span><p>printme-design-website.vercel.app</p></div>
         <div class="site-preview-stage">
           <div class="preview-facade">
+            <img class="preview-facade-img" src="../../assets/work/printme-desktop.jpg?v=1" alt="" width="1440" height="900" loading="lazy">
+            <div class="facade-panel">
             <p class="preview-facade-host">printme-design-website.vercel.app</p>
             <button class="btn btn--primary" type="button" data-preview-launch>Launch interactive preview <span class="btn-arrow" aria-hidden="true">→</span></button>
             <p class="preview-facade-note">Loads the live site inside this page.</p>
+            </div>
           </div>
           <iframe data-preview-src="https://printme-design-website.vercel.app/" title="Interactive preview of the PrintMe website" loading="lazy" hidden sandbox="allow-scripts allow-same-origin allow-forms allow-popups" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
       </div>
-      <p class="preview-note">Interactive development preview — scroll and explore here, or open the full site above.</p>
+      <p class="preview-note">The public URL currently serves the launch page for PrintMe Design while the commerce platform is hardened for production.</p>
       <p class="preview-fallback" hidden>Preview staying blank? Some sites block embedding — <a href="https://printme-design-website.vercel.app/" target="_blank" rel="noopener noreferrer">open printme-design-website.vercel.app in a new tab ↗</a>.</p>
     </div>
   </section>
@@ -140,6 +143,7 @@
         <p>Print products are deceptively complicated commerce. A single business card isn't one SKU — it's a matrix of sizes, stocks, finishes, quantities, and turnaround options, each combination with its own price. Off-the-shelf store platforms handle simple variants; they fall over when the catalogue is large and every product is a configurator.</p>
         <p>PrintMe exists to handle that reality properly: customers configure exactly what they need, prices are always correct, and the order that reaches production carries everything the print workflow needs.</p>
       </div>
+      <p class="pull" data-reveal>A business card isn't one SKU — it's a matrix of stocks, finishes, quantities, and turnarounds, each with its own price.</p>
     </div>
   </section>
 
@@ -157,7 +161,7 @@
     </div>
   </section>
 
-  <section class="case-section">
+  <section class="case-section case-section--ink">
     <div class="container">
       <h2><span class="case-index">03</span>How it's built</h2>
       <div class="case-prose">
@@ -179,7 +183,7 @@
     <div class="container">
       <h2><span class="case-index">04</span>Status &amp; what's next</h2>
       <div class="case-prose">
-        <p>PrintMe is in active development, working toward production launch. The current build is available in the interactive preview above while work continues on hardening checkout, expanding the admin system, and preparing the catalogue for real production volume.</p>
+        <p>PrintMe is in active development, working toward production launch. The public URL serves the brand's launch page today, while work continues on hardening checkout, expanding the admin system, and preparing the catalogue for real production volume.</p>
       </div>
     </div>
   </section>
@@ -198,7 +202,7 @@
       <p class="eyebrow" data-reveal>Related work</p>
       <div class="related-grid" style="margin-top: var(--sp-5);">
         <a class="ticket" href="../arun-bakery/" data-reveal>
-          <div class="ticket-meta"><span>Restaurant</span><span class="chip"><span class="dot dot--dev" aria-hidden="true"></span>In development</span></div>
+          <div class="ticket-meta"><span>Restaurant</span><span class="chip"><span class="dot dot--live" aria-hidden="true"></span>Live in production</span></div>
           <h2 class="ticket-title">Arun Bakery</h2>
           <p class="ticket-desc">Bilingual ordering and digital transformation for a Tamil bakery brand.</p>
           <span class="ticket-cta">Read the case study</span>
@@ -229,7 +233,7 @@
 
 <footer class="site-footer">
   <div class="container footer-close">
-    <p>Software that respects how your business actually runs.</p>
+    <p>Designed and engineered by Achchuthan.<br>Built with clarity, care, and an unreasonable number of edge-case checks.</p>
     <span class="brand-mark" aria-hidden="true">AK<span class="accent">.</span></span>
   </div>
   <div class="container footer-inner">

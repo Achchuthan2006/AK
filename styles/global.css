@@ -937,11 +937,12 @@ html:not(.has-js) .mask-lines .line > span { transform: none; }
 .footer-close p {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
   letter-spacing: -0.015em;
-  line-height: 1.25;
+  line-height: 1.35;
   color: var(--on-ink);
-  max-width: 26ch;
+  max-width: 44ch;
+  text-wrap: balance;
 }
 .footer-close .brand-mark { font-size: 2rem; color: var(--on-ink); }
 .footer-inner {
@@ -1049,8 +1050,12 @@ html:not(.has-js) .mask-lines .line > span { transform: none; }
   background: var(--paper-2);
 }
 
-/* Click-to-load placeholder shown until the visitor asks for the preview. */
+/* Click-to-load placeholder shown until the visitor asks for the preview.
+   A real screenshot of the product sits behind a glass panel, so the
+   facade reads as a product window rather than an empty grid. */
 .preview-facade {
+  position: relative;
+  overflow: hidden;
   min-height: clamp(420px, 64vw, 720px);
   display: flex;
   flex-direction: column;
@@ -1064,6 +1069,30 @@ html:not(.has-js) .mask-lines .line > span { transform: none; }
     linear-gradient(var(--line) 1px, transparent 1px),
     linear-gradient(90deg, var(--line) 1px, transparent 1px);
   background-size: 48px 48px;
+}
+.preview-facade-img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.facade-panel {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.5rem, 5vw, 3rem);
+  background: rgba(244, 243, 238, 0.9);
+  background: color-mix(in srgb, var(--paper) 90%, transparent);
+  border: 1px solid var(--line);
+  border-radius: var(--r-l);
+  box-shadow: var(--shadow-lift);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  max-width: min(92%, 420px);
 }
 .preview-facade-host {
   font-family: var(--font-mono);
@@ -1619,8 +1648,15 @@ html:not(.has-js) .media-reveal { opacity: 1; transform: none; clip-path: none; 
   transition: transform 900ms var(--ease-out);
 }
 .ticket:hover .ticket-thumb img, .ticket:focus-within .ticket-thumb img { transform: scale(1.03); }
-.ticket-thumb .poster { aspect-ratio: auto; height: 100%; border-radius: 0; box-shadow: none; padding: clamp(1rem, 3vw, 1.5rem); }
+.ticket-thumb .poster { aspect-ratio: auto; height: 100%; border-radius: 0; box-shadow: none; padding: clamp(1rem, 3vw, 1.5rem); gap: var(--sp-2); }
 .ticket-thumb .poster-title { font-size: clamp(1.3rem, 2.6vw, 1.7rem); }
+.ticket-thumb .poster-kicker,
+.ticket-thumb .poster-meta {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 /* --- Case-study hero media & editorial chapters --------------------------- */
 
@@ -1632,6 +1668,21 @@ html:not(.has-js) .media-reveal { opacity: 1; transform: none; clip-path: none; 
 }
 @media (max-width: 640px) {
   .case-hero-media .phone { width: 128px; right: var(--sp-4); bottom: -1rem; }
+}
+
+/* Chapter media column: prose/diagram beside a device crop */
+.case-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+.case-cols .phone { width: clamp(170px, 16vw, 220px); }
+.case-cols figure { display: flex; flex-direction: column; }
+@media (max-width: 760px) {
+  .case-cols { grid-template-columns: 1fr; }
+  .case-cols figure { flex-direction: row; align-items: flex-end; gap: var(--sp-4); }
+  .case-cols .media-cap { max-width: 18ch; }
 }
 
 .pull {
