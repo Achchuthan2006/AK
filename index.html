@@ -22,9 +22,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles/tokens.css?v=4">
-<link rel="stylesheet" href="styles/global.css?v=4">
-<script src="js/motion.js?v=5" defer></script>
+<link rel="stylesheet" href="styles/tokens.css?v=5">
+<link rel="stylesheet" href="styles/global.css?v=5">
+<script src="js/motion.js?v=6" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -106,7 +106,7 @@
         <span class="line"><span>production software</span></span>
         <span class="line"><span>for <span class="accent">real businesses</span>.</span></span>
       </h1>
-      <div class="hero-grid">
+      <div class="hero-grid hero-grid--stage">
         <div class="hero-copy">
           <p class="lead" data-reveal style="--d:160ms">Commerce platforms, ordering systems, bilingual community sites, and AI-assisted product experiences — planned, engineered, shipped, and looked after.</p>
           <div class="hero-actions" data-reveal style="--d:240ms">
@@ -117,17 +117,19 @@
             <a href="https://github.com/Achchuthan2006" rel="noopener">GitHub ↗</a>
             <a href="resume/">Resume</a>
             <a href="mailto:kumarananthaachchuthan15@gmail.com">Email</a>
+            <span class="chip"><span class="dot dot--live" aria-hidden="true"></span>Open to roles &amp; projects</span>
           </div>
         </div>
-        <dl class="sheet hero-sheet" data-reveal style="--d:280ms">
-        <div class="sheet-caption">Build sheet — AK/2026</div>
-        <div class="sheet-row"><dt>Name</dt><dd>Achchuthan Kumaranantha</dd></div>
-        <div class="sheet-row"><dt>Role</dt><dd>Full-stack product engineer</dd></div>
-        <div class="sheet-row"><dt>Base</dt><dd>Vaughan · Greater Toronto Area</dd></div>
-        <div class="sheet-row"><dt>Languages</dt><dd>English · Tamil</dd></div>
-        <div class="sheet-row"><dt>Education</dt><dd>Computer Programming &amp; Analysis, Humber College</dd></div>
-        <div class="sheet-row"><dt>Status</dt><dd><span class="chip"><span class="dot dot--live" aria-hidden="true"></span>Open to roles &amp; projects</span></dd></div>
-        </dl>
+        <div class="hero-stage" data-stage data-reveal style="--d:280ms" role="group" aria-label="Recent production work">
+          <figure class="frame media-reveal" style="--d:360ms">
+            <div class="frame-bar" aria-hidden="true"><span></span><span></span><span></span><p>arunbakerywonderland.ca</p></div>
+            <img src="assets/work/arun-bakery-desktop.jpg?v=1" alt="Arun Bakery — bilingual bakery and takeout site built by Achchuthan, live in production" width="1440" height="900" fetchpriority="high">
+          </figure>
+          <figure class="phone media-reveal" style="--d:520ms">
+            <img src="assets/work/power-poly-mobile.jpg?v=1" alt="Power Poly Supplies B2B commerce platform on mobile" width="390" height="844" loading="lazy">
+          </figure>
+          <p class="stage-tag"><span class="dot dot--live" aria-hidden="true"></span>Shipped &amp; in production</p>
+        </div>
       </div>
     </div>
   </section>
@@ -135,8 +137,8 @@
   <!-- Credibility strip -->
   <section class="cred-strip" aria-label="At a glance">
     <div class="container cred-inner">
-      <div class="cred-item" data-reveal><strong>8 products</strong><span>designed and engineered across commerce, community, and entertainment</span></div>
-      <div class="cred-item" data-reveal style="--d:80ms"><strong>3 live client sites</strong><span>in production today for real organizations in the GTA</span></div>
+      <div class="cred-item" data-reveal><strong>10 products</strong><span>designed and engineered across commerce, community, and entertainment</span></div>
+      <div class="cred-item" data-reveal style="--d:80ms"><strong>4 live client sites</strong><span>in production today for real organizations in the GTA</span></div>
       <div class="cred-item" data-reveal style="--d:160ms"><strong>2 languages</strong><span>products shipped in English and Tamil, end to end</span></div>
       <div class="cred-item" data-reveal style="--d:240ms"><strong>Full stack</strong><span>from discovery and design to deployment and support</span></div>
     </div>
@@ -153,46 +155,102 @@
         <a class="link-quiet" href="work/" data-reveal style="--d:160ms">View all work →</a>
       </div>
 
-      <div class="work-grid">
-        <a class="ticket ticket--flagship" href="work/printme/" data-reveal>
-          <div class="ticket-meta"><span>Print commerce</span><span>2026</span><span class="chip"><span class="dot dot--live" aria-hidden="true"></span>Live preview</span></div>
-          <h3 class="ticket-title">PrintMe</h3>
-          <p class="ticket-desc">A print-commerce platform engineered for large catalogues of configurable products — server-validated pricing and options, Square checkout, an admin system, and production-ready workflows from order to output.</p>
-          <p class="ticket-stack">Next.js · TypeScript · Supabase · PostgreSQL · Square · Zod</p>
-          <span class="ticket-cta">Case study &amp; live preview</span>
-        </a>
+      <div class="shows">
 
-        <a class="ticket" href="work/arun-bakery/" data-reveal>
-          <div class="ticket-meta"><span>Restaurant</span><span>2026</span><span class="chip"><span class="dot dot--live" aria-hidden="true"></span>Live preview</span></div>
-          <h3 class="ticket-title">Arun Bakery</h3>
-          <p class="ticket-desc">Digital transformation for a Tamil bakery brand: bilingual menus, online ordering with Square, promotions, admin tooling, and an AI voice-receptionist concept.</p>
-          <p class="ticket-stack">Bilingual EN/TA · Ordering · Square · AI voice</p>
-          <span class="ticket-cta">Case study &amp; live preview</span>
-        </a>
+        <article class="show show--flagship" data-num="01" data-reveal>
+          <div class="show-body">
+            <div class="show-kicker"><span class="show-index">01</span><span>Restaurant · Vaughan</span><span>2026</span><span class="chip"><span class="dot dot--live" aria-hidden="true"></span>Live in production</span></div>
+            <h3 class="show-title"><a href="work/arun-bakery/">Arun Bakery</a></h3>
+            <p class="show-desc">Digital transformation for a Tamil bakery and takeout brand, now serving customers at its own domain: bilingual menus, online ordering with Square, promotions, admin tooling, and an AI voice-receptionist concept.</p>
+          </div>
+          <div class="show-media">
+            <figure class="frame media-reveal">
+              <div class="frame-bar" aria-hidden="true"><span></span><span></span><span></span><p>arunbakerywonderland.ca</p></div>
+              <img src="assets/work/arun-bakery-desktop.jpg?v=1" alt="Arun Bakery homepage — Sri Lankan and South Indian favourites, bilingual masthead and online menu" width="1440" height="900" loading="lazy">
+            </figure>
+            <figure class="phone show-phone media-reveal" style="--d:140ms">
+              <img src="assets/work/arun-bakery-mobile.jpg?v=1" alt="Arun Bakery mobile ordering experience" width="390" height="844" loading="lazy">
+            </figure>
+          </div>
+          <div class="show-body">
+            <p class="show-stack">Bilingual EN/TA · Online ordering · Square · AI voice concept</p>
+            <span class="show-cta">Case study &amp; live site</span>
+          </div>
+        </article>
 
-        <a class="ticket" href="work/power-poly-supplies/" data-reveal style="--d:80ms">
-          <div class="ticket-meta"><span>B2B commerce</span><span>2026</span><span class="chip"><span class="dot dot--live" aria-hidden="true"></span>Live</span></div>
-          <h3 class="ticket-title">Power Poly Supplies</h3>
-          <p class="ticket-desc">A B2B commerce and operations platform for a garment-care supplier — bulk ordering, product education, quoting paths, and Square checkout, running in production.</p>
-          <p class="ticket-stack">B2B catalogue · Bulk ordering · Square · SEO</p>
-          <span class="ticket-cta">Read the case study</span>
-        </a>
+        <article class="show show--split" data-reveal>
+          <div class="show-media">
+            <figure class="media media-reveal">
+              <img src="assets/work/printme-desktop.jpg?v=1" alt="PrintMe launch page — 'Something better is on press' — for a Scarborough print business" width="1440" height="900" loading="lazy">
+            </figure>
+          </div>
+          <div class="show-body">
+            <div class="show-kicker"><span class="show-index">02</span><span>Print commerce</span><span class="chip"><span class="dot dot--dev" aria-hidden="true"></span>In development</span></div>
+            <h3 class="show-title"><a href="work/printme/">PrintMe</a></h3>
+            <p class="show-desc">A print-commerce engine for large catalogues of configurable products — server-validated pricing, Square checkout, and admin workflows. The launch page is live while the platform is hardened for production.</p>
+            <p class="show-stack">Next.js · TypeScript · Supabase · PostgreSQL · Square · Zod</p>
+            <span class="show-cta">Read the case study</span>
+          </div>
+        </article>
 
-        <a class="ticket" href="work/praise-tabernacle/" data-reveal>
-          <div class="ticket-meta"><span>Community</span><span>2026</span><span class="chip"><span class="dot dot--live" aria-hidden="true"></span>Live</span></div>
-          <h3 class="ticket-title">Praise Tabernacle</h3>
-          <p class="ticket-desc">A bilingual Tamil–English platform for a Mississauga church community: services, sermons, livestreams, ministries, events, and prayer-request workflows.</p>
-          <p class="ticket-stack">Bilingual EN/TA · Livestream · Events · Forms</p>
-          <span class="ticket-cta">Read the case study</span>
-        </a>
+        <article class="show show--split show--rev" data-reveal>
+          <div class="show-media">
+            <figure class="frame media-reveal">
+              <div class="frame-bar" aria-hidden="true"><span></span><span></span><span></span><p>powerpolysupplies.com</p></div>
+              <img src="assets/work/power-poly-desktop.jpg?v=1" alt="Power Poly Supplies — B2B packaging commerce platform with bulk pricing and catalogue" width="1440" height="900" loading="lazy">
+            </figure>
+          </div>
+          <div class="show-body">
+            <div class="show-kicker"><span class="show-index">03</span><span>B2B commerce</span><span class="chip"><span class="dot dot--live" aria-hidden="true"></span>Live in production</span></div>
+            <h3 class="show-title"><a href="work/power-poly-supplies/">Power Poly Supplies</a></h3>
+            <p class="show-desc">A B2B commerce and operations platform for a garment-care and packaging supplier — bulk ordering, quoting paths, and Square checkout, built inside the business it serves.</p>
+            <p class="show-stack">B2B catalogue · Bulk ordering · Square · SEO</p>
+            <span class="show-cta">Read the case study</span>
+          </div>
+        </article>
 
-        <a class="ticket" href="work/wanted-for-fries/" data-reveal style="--d:80ms">
-          <div class="ticket-meta"><span>Game</span><span>2026</span><span class="chip"><span class="dot dot--dev" aria-hidden="true"></span>In development</span></div>
-          <h3 class="ticket-title">Wanted for Fries</h3>
-          <p class="ticket-desc">A narrative-driven 3D game built as an independent project — vehicle mechanics, police chases, cinematic sequences, and procedural animation.</p>
-          <p class="ticket-stack">3D · Gameplay systems · Cinematics · Audio/VFX</p>
-          <span class="ticket-cta">Read the case study</span>
-        </a>
+        <article class="show show--split" data-reveal>
+          <div class="show-media">
+            <figure class="frame media-reveal">
+              <div class="frame-bar" aria-hidden="true"><span></span><span></span><span></span><p>praisetabernacle.org</p></div>
+              <img src="assets/work/praise-tabernacle-desktop.jpg?v=1" alt="Praise Tabernacle — bilingual Tamil-English church platform with live service times" width="1440" height="900" loading="lazy">
+            </figure>
+          </div>
+          <div class="show-body">
+            <div class="show-kicker"><span class="show-index">04</span><span>Community</span><span class="chip"><span class="dot dot--live" aria-hidden="true"></span>Live in production</span></div>
+            <h3 class="show-title"><a href="work/praise-tabernacle/">Praise Tabernacle</a></h3>
+            <p class="show-desc">A bilingual Tamil–English platform for a Mississauga church community: services, sermons, livestreams, ministries, events, and prayer-request workflows.</p>
+            <p class="show-stack">Bilingual EN/TA · Livestream · Events · Forms</p>
+            <span class="show-cta">Read the case study</span>
+          </div>
+        </article>
+
+        <article class="show show--split show--rev" data-reveal>
+          <div class="show-media">
+            <div class="poster media-reveal" role="img" aria-label="Wanted for Fries — cinematic title treatment for an independent 3D game in development">
+              <span class="poster-kicker">Independent game · in development</span>
+              <span class="poster-title">Wanted<br>for Fries</span>
+              <span class="poster-meta">Vehicle systems · police chases · cinematics</span>
+            </div>
+          </div>
+          <div class="show-body">
+            <div class="show-kicker"><span class="show-index">05</span><span>Game</span><span class="chip"><span class="dot dot--dev" aria-hidden="true"></span>In development</span></div>
+            <h3 class="show-title"><a href="work/wanted-for-fries/">Wanted for Fries</a></h3>
+            <p class="show-desc">A narrative-driven 3D game built as an independent project — vehicle mechanics, police chases, cinematic sequences, and procedural animation.</p>
+            <p class="show-stack">3D · Gameplay systems · Cinematics · Audio/VFX</p>
+            <span class="show-cta">Read the case study</span>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="more-row" data-reveal>
+        <span>Also in the index</span>
+        <a href="work/sharons-ice-cream/">Sharon's Ice Cream</a>
+        <a href="work/trilla-melodies/">Trilla Melodies</a>
+        <a href="work/courtyard-spa/">Courtyard Spa</a>
+        <a href="work/rex-limo/">Rex Limo</a>
+        <a href="work/zuzi/">ZUZI</a>
       </div>
     </div>
   </section>
