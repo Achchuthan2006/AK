@@ -6,10 +6,12 @@
 
 :root {
   /* --- Color: surfaces --- */
-  --paper:        #f4f3ee;   /* page background */
+  --paper:        #f4f3ee;   /* page background (warm chalk) */
   --paper-2:      #ecebe3;   /* raised panels, tints */
   --paper-3:      #e4e2d8;   /* deeper tint, hover fills */
+  --paper-cool:   #e9eaea;   /* cooler technical surface for contrast sections */
   --ink:          #16181f;   /* primary text, dark bands */
+  --ink-deep:     #101218;   /* deepest ink — cinematic sections */
   --ink-2:        #3b3e48;   /* secondary text */
   --ink-3:        #63656c;   /* muted metadata (AA on paper) */
 
@@ -38,11 +40,13 @@
   --font-body:    "Public Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono:    "IBM Plex Mono", ui-monospace, "Cascadia Mono", monospace;
 
-  --text-hero:  clamp(2rem, 7.2vw, 5.6rem);
+  --text-hero:  clamp(2.3rem, 7.4vw, 6rem);
   --text-flag:  clamp(2.1rem, 4.6vw, 3.6rem);   /* flagship project titles */
+  --text-show:  clamp(1.7rem, 3.4vw, 2.6rem);   /* showcase project titles */
   --text-h2:    clamp(1.85rem, 3.6vw, 2.7rem);
   --text-h3:    clamp(1.3rem, 2vw, 1.6rem);
   --text-h4:    1.1rem;
+  --text-pull:  clamp(1.35rem, 2.6vw, 2rem);    /* editorial pull statements */
   --text-lead:  clamp(1.05rem, 1.4vw, 1.2rem);
   --text-body:  1rem;
   --text-small: 0.875rem;
@@ -74,10 +78,13 @@
   --r-s: 3px;
   --r-m: 6px;
   --r-l: 12px;
+  --r-xl: 18px;
 
   /* --- Elevation --- */
-  --shadow-nav:  0 1px 0 var(--line), 0 8px 24px rgba(22, 24, 31, 0.06);
-  --shadow-lift: 0 14px 36px rgba(22, 24, 31, 0.10);
+  --shadow-nav:   0 1px 0 var(--line), 0 8px 24px rgba(22, 24, 31, 0.06);
+  --shadow-lift:  0 14px 36px rgba(22, 24, 31, 0.10);
+  --shadow-media: 0 22px 60px rgba(21, 30, 50, 0.16), 0 4px 14px rgba(21, 30, 50, 0.08);
+  --shadow-phone: 0 18px 44px rgba(21, 30, 50, 0.22);
 
   /* --- Motion --- */
   --dur-1: 160ms;
