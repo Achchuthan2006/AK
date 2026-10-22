@@ -9,7 +9,7 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 
 /* --- Scroll reveals ----------------------------------------------------- */
 
-const revealTargets = document.querySelectorAll("[data-reveal], .rule-anim");
+const revealTargets = document.querySelectorAll("[data-reveal], .rule-anim, .media-reveal");
 
 if (reduceMotion || !("IntersectionObserver" in window)) {
   revealTargets.forEach((el) => el.classList.add("is-in"));
@@ -141,6 +141,33 @@ if (!reduceMotion && window.matchMedia("(pointer: fine)").matches) {
       btn.style.setProperty("--mx", "0px");
       btn.style.setProperty("--my", "0px");
     });
+  });
+}
+
+/* --- Hero stage depth -------------------------------------------------------
+   The layered project media in the hero answers the pointer with a few
+   pixels of parallax. Desktop fine pointers only; never under reduced
+   motion; the mobile composition is static by design. */
+
+const stage = document.querySelector("[data-stage]");
+if (stage && !reduceMotion && window.matchMedia("(pointer: fine)").matches) {
+  const field = stage.closest(".hero") || stage;
+  const MAX_DEPTH = 7;
+  let raf = 0;
+  field.addEventListener("pointermove", (e) => {
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      raf = 0;
+      const r = field.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width - 0.5) * 2;
+      const y = ((e.clientY - r.top) / r.height - 0.5) * 2;
+      stage.style.setProperty("--px", (x * MAX_DEPTH).toFixed(1) + "px");
+      stage.style.setProperty("--py", (y * MAX_DEPTH).toFixed(1) + "px");
+    });
+  });
+  field.addEventListener("pointerleave", () => {
+    stage.style.setProperty("--px", "0px");
+    stage.style.setProperty("--py", "0px");
   });
 }
 
